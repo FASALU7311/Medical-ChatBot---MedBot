@@ -1,11 +1,13 @@
 # 🩺 MedBot — Intelligent Medical Chatbot
 **Overview**
-
+<a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
 MedBot is a lightweight, AI-powered medical chatbot designed to provide basic healthcare advice and symptom analysis.
 Built with Flask, HTML/CSS/JS, and optionally powered by advanced models like Bio_ClinicalBERT and Gemini AI, MedBot assists users by answering medical queries related to common symptoms and diseases.
 
 ⚡ Note: MedBot is NOT a replacement for professional medical advice.
+<a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
+
 
 # Features
 ✅ Real-time symptom analysis
@@ -21,6 +23,8 @@ Built with Flask, HTML/CSS/JS, and optionally powered by advanced models like Bi
 ✅ Easy-to-deploy Flask backend
 
 ✅ Secure API key management using .env
+
+<a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
 # Technologies Used
 **Frontend:**
@@ -40,6 +44,8 @@ Built with Flask, HTML/CSS/JS, and optionally powered by advanced models like Bi
 
 * dotenv (for environment variables)
 * PyTorch (for model loading)
+
+<a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
 # Project Structure
 
@@ -69,5 +75,7 @@ MedBot/
 ├── requirments.txt               # (Typo!) Should be: requirements.txt - list of dependencies
 
 ```
+<a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
+<a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
