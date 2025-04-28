@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medical Chatbot</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .chat-container {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      width: 400px;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-window {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      background-color: #2a2a2a;
+    }
+
+    .chat-message {
+      margin: 8px 0;
+      text-align: left;
+    }
+
+    .user {
+      color: #00bfff;
+    }
+
+    .bot {
+      color: #90ee90;
+    }
+
+    .chatbox {
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1rem;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #1a4b78;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    .doctor-avatar {
+      margin-top: 15px;
+      width: 100px;
+      border-radius: 50%;
+      border: 3px solid #1a4b78;
+      align-self: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🩺 Welcome to MedBot</h1>
+
+  <div class="chat-container">
+    <div class="chat-window" id="chatWindow"></div>
+    <div class="chatbox">
+      <input type="text" id="chatInput" placeholder="Ask something...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" alt="Doctor Avatar" class="doctor-avatar">
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const chatWindow = document.getElementById("chatWindow");
+      const message = input.value.trim();
+
+      if (message === "") return;
+
+      // Add user message
+      chatWindow.innerHTML += `<div class="chat-message user"><strong>You:</strong> ${message}</div>`;
+
+      // Fake bot response
+      setTimeout(() => {
+        const botReply = getBotReply(message);
+        chatWindow.innerHTML += `<div class="chat-message bot"><strong>MedBot:</strong> ${botReply}</div>`;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }, 500);
+
+      input.value = "";
+    }
+
+    function getBotReply(msg) {
+      // You can improve this logic with NLP later
+      msg = msg.toLowerCase();
+      if (msg.includes("headache")) return "Drink water and take rest. If it persists, consult a doctor.";
+      if (msg.includes("fever")) return "Try paracetamol and stay hydrated. Monitor your temperature regularly.";
+      if (msg.includes("cold")) return "Rest, drink warm fluids, and take vitamin C. Visit a doctor if symptoms worsen.";
+      if (msg.includes("cough")) return "Stay hydrated, avoid cold drinks, and take cough syrup if necessary.";
+      if (msg.includes("flu")) return "Rest, stay warm, and drink plenty of fluids. Consult a doctor if symptoms worsen.";
+      if (msg.includes("diabetes")) return "Maintain a healthy diet, monitor blood sugar, and follow your medication routine.";
+      if (msg.includes("hypertension")) return "Reduce salt intake, manage stress, exercise regularly, and take prescribed medications.";
+      if (msg.includes("asthma")) return "Avoid triggers, carry an inhaler, and follow your doctor's treatment plan.";
+      if (msg.includes("allergy")) return "Identify and avoid allergens. Antihistamines can help in mild cases.";
+      if (msg.includes("anemia")) return "Increase iron-rich foods like spinach, red meat, and consult a doctor for supplements.";
+      if (msg.includes("pneumonia")) return "Seek immediate medical attention. Antibiotics and rest are usually required.";
+      if (msg.includes("arthritis")) return "Exercise gently, manage weight, and consider anti-inflammatory medications.";
+      if (msg.includes("migraine")) return "Rest in a dark, quiet room. Over-the-counter pain relievers might help.";
+      if (msg.includes("depression")) return "Talk to a mental health professional. Therapy and medications can help.";
+      if (msg.includes("anxiety")) return "Practice breathing exercises, mindfulness, and seek professional counseling if needed.";
+      if (msg.includes("covid")) return "Isolate yourself, monitor symptoms, stay hydrated, and seek medical help if severe.";
+      if (msg.includes("chickenpox")) return "Rest, use calamine lotion for itching, and avoid scratching the blisters.";
+      if (msg.includes("measles")) return "Rest, stay hydrated, and consult a doctor immediately.";
+      if (msg.includes("dengue")) return "Stay hydrated, rest, and monitor for warning signs like bleeding or severe pain.";
+      if (msg.includes("malaria")) return "Seek immediate medical treatment. Prevent mosquito bites in future.";
+      if (msg.includes("typhoid")) return "Take prescribed antibiotics and stay hydrated.";
+      if (msg.includes("jaundice")) return "Avoid fatty foods, stay hydrated, and follow medical advice.";
+      if (msg.includes("ulcer")) return "Avoid spicy foods, alcohol, and take doctor-prescribed medications.";
+      if (msg.includes("eczema")) return "Moisturize regularly and avoid known irritants. Consult a dermatologist.";
+      if (msg.includes("psoriasis")) return "Use medicated creams and moisturizers. Light therapy can also help.";
+      if (msg.includes("sinusitis")) return "Use nasal sprays, stay hydrated, and try warm compresses on your face.";
+      if (msg.includes("bronchitis")) return "Rest, drink plenty of fluids, and avoid smoking.";
+      if (msg.includes("hepatitis")) return "Avoid alcohol, eat healthy, and follow medical advice.";      
+      if (msg.includes("kidney stone")) return "Drink plenty of water and consult a doctor if severe pain occurs.";
+      if (msg.includes("gallstones")) return "Surgery might be required. Consult a healthcare provider.";
+      if (msg.includes("fracture")) return "Immobilize the area and seek immediate medical care.";
+      if (msg.includes("sprain")) return "Rest, ice, compression, and elevation (RICE method).";
+      if (msg.includes("burn")) return "Cool the area with running water. Do not apply ice directly.";
+      if (msg.includes("food poisoning")) return "Stay hydrated, rest, and seek medical help if symptoms are severe.";
+      if (msg.includes("appendicitis")) return "Seek emergency medical attention; surgery may be necessary.";
+      if (msg.includes("obesity")) return "Adopt a healthy diet and exercise regularly. Consult a dietitian if needed.";
+      if (msg.includes("insomnia")) return "Maintain a sleep routine, avoid caffeine late in the day, and relax before sleeping.";
+      if (msg.includes("ear infection")) return "Consult a doctor. Antibiotics may be necessary.";
+      if (msg.includes("eye infection")) return "Use prescribed eye drops and avoid touching the eyes.";
+      if (msg.includes("hello") || msg.includes("hi")) return "Hello! How can I assist you medically today?";
+      return "I'm a simple MedBot. Please ask about common symptoms or health concerns.";
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
